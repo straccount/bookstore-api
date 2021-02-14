@@ -1,5 +1,6 @@
 package com.fausto.bookstore.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,4 +21,11 @@ public class LivroService {
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado  Id: "+ id +" , Tipo: "+Livro.class.getName()));
 	}
+
+
+	public List<Livro> findAllByCategoria(Integer id_cat) {
+		return repository.findAllByCategoria(id_cat);
+	}
+
+
 }
